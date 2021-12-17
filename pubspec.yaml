@@ -1,8 +1,8 @@
 name: video_edit_factory
-description: A new Flutter project.
+description: A new Flutter project for editing videos
 version: 0.0.1
-author:
-homepage:
+author: xiaojieonly
+homepage: https://github.com/xiaojieonly/Flutter_Video_Edit_Factory
 
 environment:
   sdk: ">=2.12.0 <3.0.0"
