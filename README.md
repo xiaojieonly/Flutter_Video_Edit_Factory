@@ -3,6 +3,8 @@
 基于ffmpeg_kit_flutter的二次封装，每次都手动输命令真的很难受。。。
 Based on the secondary encapsulation of ffmpeg_kit_flutter, it is really uncomfortable to manually input commands every time. . .
 
+## 源码
+https://github.com/xiaojieonly/Flutter_Video_Edit_Factory
 
 ## Template
 ```
