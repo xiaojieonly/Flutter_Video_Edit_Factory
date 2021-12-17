@@ -49,17 +49,15 @@ class VideoEditFactory {
     return file;
   }
 
-  Future<MediaInformationSession> getVideoInfo(
-    String inputPath, {
+  Future<MediaInformationSession> getMediaInfo({
     ExecuteCallback? executeCallback,
     LogCallback? logCallback,
-    int timeOut = 9999,
   }) async {
     return FFprobeKit.getMediaInformationAsync(
-        inputPath, executeCallback, logCallback, timeOut);
+        inputPath, executeCallback, logCallback, _videoAttribute.waitTimeOut);
   }
 
-  static Future<MediaInformationSession> getMediaInfo(
+  static Future<MediaInformationSession> getMediaInfoStatic(
     String inputPath, {
     ExecuteCallback? executeCallback,
     LogCallback? logCallback,
@@ -86,39 +84,53 @@ class VideoEditFactory {
       throw new VEException('${sessionState.toString()}', session: session);
     }
   }
-
-  outputPathBuild(String outputPath) {
+  // 设置文件的输出目录
+  // Set the output directory of the file
+  setOutputPath(String outputPath) {
     _videoAttribute.outputPath = outputPath;
   }
-
+  // 剪切视频指定区间（单位：秒）
+  // Cut video specified interval (unit: second)
   cutByTime(int start, int end) {
     _videoAttribute.cutByTime = "-ss $start -to $end ";
   }
-
-  setTimeOut(int waitTimeOut) {
-    _videoAttribute.waitTimeOut = waitTimeOut;
+  // 设置超时时间（仅限获取文件信息时生效）
+  // Set the timeout period (valid only when the file information is obtained)
+  setTimeOut(int second) {
+    _videoAttribute.waitTimeOut = second;
   }
-
+  // 设置输出文件名称
+  // Set the output file name
   setOutputName(String name) {
     _videoAttribute.name = name;
   }
 
+  // 设置视频帧数
+  // Set the number of video frames
   setOutPutFPS(int fps) {
     _videoAttribute.fps = "-r $fps ";
   }
 
+  // 设置输出文件的大小
+  // Set the size of the output file
   setOutputVideoSize(int mb) {
     _videoAttribute.size = "-fs ${mb}MB ";
   }
 
+  // 设置视频比特率
+  // Set video bit rate
   setBitRate(double mb) {
     _videoAttribute.bitRate = "-b:v ${mb}M ";
   }
 
+  // 设置输出格式
+  // Set output format
   setType(String type) {
     _videoAttribute.videoType = type;
   }
 
+  // 设置输出文件的宽高
+  // Set the width and height of the output file
   setOutputVideoSale(int width, int height) {
     if (height == -1) {
       _videoAttribute.outputSize = "sale=$width:-1 ";

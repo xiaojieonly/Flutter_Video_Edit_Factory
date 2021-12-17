@@ -16,7 +16,7 @@ class VideoAttribute{
 
   String cutByTime = "";
 
-  int waitTimeOut = 99999;
+  int waitTimeOut = 999;
 
   String name = "";
 
