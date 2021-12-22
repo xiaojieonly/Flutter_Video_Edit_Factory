@@ -24,6 +24,8 @@ class VideoAttribute{
 
   String outputSize = "";
 
+  String addWaterMark = "";
+
   String get outputFilePath{
     return "$outputPath/$name.$videoType";
   }
@@ -38,6 +40,6 @@ class VideoAttribute{
 
   @override
   String toString() {
-    return "-i $inputPath $fps$size$bitRate$cutByTime$outputSize$outputFilePath";
+    return "-i $inputPath $addWaterMark$fps$size$bitRate$cutByTime$outputSize$outputFilePath";
   }
 }
