@@ -4,6 +4,7 @@ import 'package:ffmpeg_kit_flutter/media_information.dart';
 import 'package:ffmpeg_kit_flutter/media_information_session.dart';
 import 'package:ffmpeg_kit_flutter/session.dart';
 import 'package:video_edit_factory/video_edit_factory.dart';
+import 'package:video_edit_factory/video_factory/dictionary/video_offset.dart';
 
 void main() {}
 
@@ -55,7 +56,10 @@ void videoEdit() {
     ..setOutputName('output file name')
     // 设置文件的输出目录
     // Set the output directory of the file
-    ..setOutputPath('the output directory of the file');
+    ..setOutputPath('the output directory of the file')
+    // 添加水印（图片文件，水印位置）
+    // Add watermark（Picture file, watermark location）
+    ..setPictureWatermark(File('image path'), VideoOffset.topLeft());
 
   File videoFile;
   // 执行视频编辑命令
