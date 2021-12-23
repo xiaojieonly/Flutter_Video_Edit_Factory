@@ -145,8 +145,8 @@ class VideoEditFactory {
 
   /// 设置图片水印
   /// Set image watermark
-  setPictureWatermark(String picturePath,VideoOffset offset){
-    _videoAttribute.addWaterMark = "-vf \"movie= $picturePath ${offset.toString()}\" ";
+  setPictureWatermark(File pictureFile,VideoOffset offset){
+    _videoAttribute.addWaterMark = "-vf \"movie= ${pictureFile.path} ${offset.toString()}\" ";
   }
 }
 
