@@ -85,21 +85,25 @@ class VideoEditFactory {
       throw new VEException('${sessionState.toString()}', session: session);
     }
   }
+
   /// 设置文件的输出目录
   /// Set the output directory of the file
   setOutputPath(String outputPath) {
     _videoAttribute.outputPath = outputPath;
   }
+
   /// 剪切视频指定区间（单位：秒）
   /// Cut video specified interval (unit: second)
   cutByTime(int start, int end) {
     _videoAttribute.cutByTime = "-ss $start -to $end ";
   }
+
   /// 设置超时时间（仅限获取文件信息时生效）
   /// Set the timeout period (valid only when the file information is obtained)
   setTimeOut(int second) {
     _videoAttribute.waitTimeOut = second;
   }
+
   /// 设置输出文件名称
   /// Set the output file name
   setOutputName(String name) {
@@ -142,11 +146,11 @@ class VideoEditFactory {
     }
   }
 
-
   /// 设置图片水印
   /// Set image watermark
-  setPictureWatermark(File pictureFile,VideoOffset offset){
-    _videoAttribute.addWaterMark = "-vf \"movie= ${pictureFile.path} ${offset.toString()}\" ";
+  setPictureWatermark(File pictureFile, VideoOffset offset) {
+    _videoAttribute.addWaterMark =
+        "-vf \"movie= ${pictureFile.path} ${offset.toString()}\" ";
   }
 }
 

@@ -1,10 +1,3 @@
-enum WatermarkProperty {
-  MAIN_WIDTH,
-  MAIN_HEIGHT,
-  OVERLAY_WIDTH,
-  OVERLAY_HEIGHT,
-}
-
 class VideoOffset {
   String _offset = '';
 

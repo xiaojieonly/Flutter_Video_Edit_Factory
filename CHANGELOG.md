@@ -1,3 +1,8 @@
+## [0.1.1]
+&nbsp;&nbsp;1.修改证书
+&nbsp;&nbsp;2.优化部分代码
+&nbsp;&nbsp;1.Modify the certificate
+&nbsp;&nbsp;2.Optimize part of the code
 ## [0.1.0]
 &nbsp;&nbsp;新增 添加水印功能
 &nbsp;&nbsp;Added watermark function

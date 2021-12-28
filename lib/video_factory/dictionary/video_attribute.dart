@@ -1,5 +1,4 @@
-class VideoAttribute{
-
+class VideoAttribute {
   VideoAttribute();
 
   String inputPath = "";
@@ -26,15 +25,15 @@ class VideoAttribute{
 
   String addWaterMark = "";
 
-  String get outputFilePath{
+  String get outputFilePath {
     return "$outputPath/$name.$videoType";
   }
 
-  String get outputImagePath{
+  String get outputImagePath {
     return "$outputPath/$name.$imageType";
   }
 
-  String getVideoPreviewImage(){
+  String getVideoPreviewImage() {
     return "-i $inputPath -ss 1 -f image2 $outputImagePath";
   }
 
