@@ -1,10 +1,11 @@
 import 'dart:io';
 
-import 'package:ffmpeg_kit_flutter/execute_callback.dart';
 import 'package:ffmpeg_kit_flutter/ffmpeg_kit.dart';
+import 'package:ffmpeg_kit_flutter/ffmpeg_session_complete_callback.dart';
 import 'package:ffmpeg_kit_flutter/ffprobe_kit.dart';
 import 'package:ffmpeg_kit_flutter/log_callback.dart';
 import 'package:ffmpeg_kit_flutter/media_information_session.dart';
+import 'package:ffmpeg_kit_flutter/media_information_session_complete_callback.dart';
 import 'package:ffmpeg_kit_flutter/session.dart';
 import 'package:ffmpeg_kit_flutter/session_state.dart';
 import 'package:ffmpeg_kit_flutter/statistics_callback.dart';
@@ -23,7 +24,7 @@ class VideoEditFactory {
   }
 
   executeAsync({
-    ExecuteCallback? executeCallback,
+    FFmpegSessionCompleteCallback? executeCallback,
     LogCallback? logCallback,
     StatisticsCallback? statisticsCallback,
   }) async {
@@ -32,7 +33,7 @@ class VideoEditFactory {
   }
 
   videoPreviewImage({
-    ExecuteCallback? executeCallback,
+    FFmpegSessionCompleteCallback? executeCallback,
     LogCallback? logCallback,
     StatisticsCallback? statisticsCallback,
   }) async {
@@ -51,7 +52,7 @@ class VideoEditFactory {
   }
 
   Future<MediaInformationSession> getMediaInfo({
-    ExecuteCallback? executeCallback,
+    MediaInformationSessionCompleteCallback? executeCallback,
     LogCallback? logCallback,
   }) async {
     return FFprobeKit.getMediaInformationAsync(
@@ -60,7 +61,7 @@ class VideoEditFactory {
 
   static Future<MediaInformationSession> getMediaInfoStatic(
     String inputPath, {
-    ExecuteCallback? executeCallback,
+        MediaInformationSessionCompleteCallback? executeCallback,
     LogCallback? logCallback,
     int timeOut = 9999,
   }) async {
