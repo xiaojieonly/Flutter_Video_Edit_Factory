@@ -1,4 +1,5 @@
 import 'dart:io';
+import 'dart:ui';
 
 import 'package:ffmpeg_kit_flutter/ffmpeg_kit.dart';
 import 'package:ffmpeg_kit_flutter/ffmpeg_session_complete_callback.dart';
@@ -36,9 +37,17 @@ class VideoEditFactory {
     FFmpegSessionCompleteCallback? executeCallback,
     LogCallback? logCallback,
     StatisticsCallback? statisticsCallback,
+    int timeFrame = 1,
+    Size? size,
   }) async {
-    await FFmpegKit.executeAsync(_videoAttribute.getVideoPreviewImage(),
-        executeCallback, logCallback, statisticsCallback);
+    await FFmpegKit.executeAsync(
+        _videoAttribute.getVideoPreviewImage(
+          timeFrame: timeFrame,
+          size: size,
+        ),
+        executeCallback,
+        logCallback,
+        statisticsCallback);
   }
 
   cancel() {
@@ -61,7 +70,7 @@ class VideoEditFactory {
 
   static Future<MediaInformationSession> getMediaInfoStatic(
     String inputPath, {
-        MediaInformationSessionCompleteCallback? executeCallback,
+    MediaInformationSessionCompleteCallback? executeCallback,
     LogCallback? logCallback,
     int timeOut = 9999,
   }) async {
